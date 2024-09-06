@@ -1,4 +1,4 @@
-#  Kubernetes容器编排adm部署
+#  Kubernetes容器编排adm部署一主两从-1.23版本
 
 ------
 
