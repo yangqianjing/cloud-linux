@@ -192,7 +192,9 @@ EOF
 $ systemctl daemon-reload && systemctl restart docker
 
 #>>> 升级所有节点的内核（v4.19+）,Kubernetes官网推荐内核版本
-$ yum -y localinstall kernel-m*
+$ wget https://dl.lamp.sh/kernel/el7/kernel-ml-5.10.81-1.el7.x86_64.rpm
+$ wget https://dl.lamp.sh/kernel/el7/kernel-ml-devel-5.10.81-1.el7.x86_64.rpm
+$ yum localinstall -y kernel-ml-5.10.81-1.el7.x86_64.rpm kernel-ml-devel-5.10.81-1.el7.x86_64.rpm
 $ grub2-set-default 0 && grub2-mkconfig -o /etc/grub2.cfg
 $ grubby --args="user_namespace.enable=1" --update-kernel="$(grubby --default-kernel)"
 $ reboot
