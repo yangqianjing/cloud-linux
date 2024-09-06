@@ -56,18 +56,11 @@ EOF
 $ curl -o /etc/yum.repos.d/docker-ce.repo https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
 $ sed -i 's#download.docker.com#mirrors.ustc.edu.cn/docker-ce#' /etc/yum.repos.d/docker-ce.repo
 
-$ sed -e 's|^mirrorlist=|#mirrorlist=|g' \
-    -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.ustc.edu.cn/centos|g' \
-    -i.bak \
-    /etc/yum.repos.d/CentOS-Base.repo
+$ curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 
 $ yum clean all && yum -y install epel-release
 
-$ sed -e 's|^metalink=|#metalink=|g' \
-    -e 's|^#baseurl=https\?://download.fedoraproject.org/pub/epel/|baseurl=https://mirrors.ustc.edu.cn/epel/|g' \
-    -e 's|^#baseurl=https\?://download.example/pub/epel/|baseurl=https://mirrors.ustc.edu.cn/epel/|g' \
-    -i.bak \
-    /etc/yum.repos.d/epel.repo
+$ wget -O /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo
 
 #>>> 安装kubernetes的YUM源（阿里云）(v1.23+)
 $ cat <<EOF > /etc/yum.repos.d/kubernetes.repo
