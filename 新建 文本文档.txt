@@ -1,0 +1,12 @@
+在rancher导入集群的时候状态一直是waitting的阶段
+查看pod的日志结果如下
+INFO: https://113.45.241.28/ping is accessible
+INFO: Value from https://113.45.241.28/v3/settings/cacerts is an x509 certificate
+time="2024-09-11T06:19:52Z" level=info msg="Listening on /tmp/log.sock"
+time="2024-09-11T06:19:52Z" level=info msg="Rancher agent version v2.5.7 is starting"
+time="2024-09-11T06:19:52Z" level=info msg="Connecting to wss://113.45.241.28/v3/connect/register with token s4m2927xz9khvtlrtdl2dn25gqlblls6q4nhnxk7rckqqp494vqbnr"
+time="2024-09-11T06:19:52Z" level=info msg="Connecting to proxy" url="wss://113.45.241.28/v3/connect/register"
+time="2024-09-11T06:19:53Z" level=info msg="Starting user controllers"
+time="2024-09-11T06:19:53Z" level=fatal msg="the server could not find the requested resource"
+
+解决方法就是把yaml的镜像拉取给替换成自己的就可以了
