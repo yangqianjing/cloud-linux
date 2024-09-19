@@ -10,3 +10,4 @@ time="2024-09-11T06:19:53Z" level=info msg="Starting user controllers"
 time="2024-09-11T06:19:53Z" level=fatal msg="the server could not find the requested resource"
 
 解决方法就是把yaml的镜像拉取给替换成自己的就可以了
+网络组件尽量使用cilium
